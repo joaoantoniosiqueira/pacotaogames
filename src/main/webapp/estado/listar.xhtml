@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Estado Teste</title>
+</h:head>
+<body>
+
+	<h:form>
+		<h:dataTable value="#{estadoBean.estados}" var="estado">
+			<h:column>
+				<h:outputText value="#{estado.descricao}" />
+			</h:column>
+			<h:column>
+				<h:outputText value="#{estado.regiao}" />
+			</h:column>		
+		</h:dataTable>
+	</h:form>
+
+</body>
+</html>
