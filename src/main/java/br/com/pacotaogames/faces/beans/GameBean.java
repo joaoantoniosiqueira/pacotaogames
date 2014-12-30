@@ -1,6 +1,7 @@
 package br.com.pacotaogames.faces.beans;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -20,6 +21,8 @@ public class GameBean implements Serializable {
 	
 	private Game game;
 	
+	private List<Game> games;
+	
 	@PostConstruct
 	public void init(){
 		game = new Game();
@@ -35,5 +38,13 @@ public class GameBean implements Serializable {
 	
 	public Game getGame(){
 		return game;
+	}
+
+	public List<Game> getGames() {
+		
+		if(games == null){
+			games = new GameDAO().getGames();
+		}
+		return games;
 	}
 }

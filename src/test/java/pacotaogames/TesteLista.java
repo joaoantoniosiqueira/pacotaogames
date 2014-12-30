@@ -2,29 +2,21 @@ package pacotaogames;
 
 import java.util.List;
 
-import br.com.pacotaogames.daos.CidadeDAO;
-import br.com.pacotaogames.daos.EstadoDAO;
-import br.com.pacotaogames.entities.Cidade;
-import br.com.pacotaogames.entities.Estado;
+import br.com.pacotaogames.daos.GameDAO;
+import br.com.pacotaogames.entities.Game;
+import br.com.pacotaogames.entities.enums.GeneroType;
 
 public class TesteLista {
 
 	public static void main(String[] args) {
 		
-		List<Estado> estados = new EstadoDAO().getEstados();
+		System.out.println(GeneroType.AVENTURA.getLabel());
 		
-		List<Cidade> cidades = new CidadeDAO().getCidadeByEstado(estados.get(9));
-		
-		int i = 0;
-		for (Estado estado : estados) {
-			
-			i++;
-			System.out.println("id = " + i + " " + estado.getDescricao());
+		List<Game> games = new GameDAO().getGameByGenero(GeneroType.AVENTURA);
+		for (Game game : games) {
+			System.out.println(game);
 		}
 		
-		for (Cidade cidade : cidades) {
-			System.out.println(cidade.getDescricao());
-		}
 	}
 
 }

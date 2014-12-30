@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<ui:composition template="/template/main.xhtml">
+<ui:define name="content">	
+	<div class="container">
+		
+		<h2>Catálogo de Games</h2>		
+		
+		<h:form role="form" prependId="false">
+			
+			<h:dataTable value="#{gameBean.games}" var="game" styleClass="table table-striped">				
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{game.descricao}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Gênero</f:facet>
+					<h:outputText value="#{game.genero}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Preço</f:facet>
+					<h:outputText value="#{game.preco}" />
+				</h:column>
+								
+			</h:dataTable>
+			
+		</h:form>
+		
+	</div>	
+</ui:define>		
+</ui:composition>
+</html>

@@ -7,10 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@NamedQueries(value={
+		@NamedQuery(name="getTodosGames", query="select g from Game g order by g.descricao"),
+		@NamedQuery(name="getGameByGenero", query="select g from Game g where g.genero = ?1 order by g.descricao")
+})
 @Entity
 @Table(name="game")
 public class Game implements Serializable {
