@@ -15,9 +15,17 @@ public abstract class GenericDAO<T> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected List<T> listar(String queryName){
+	protected List<T> listar(String queryName, Object... params){
 		
 		Query query = getEntityManager().createNamedQuery(queryName);
+		for(int i = 0; i < params.length; i++){
+			query.setParameter(i+1, params[i]);
+		}
 		return query.getResultList();
+	}
+	
+	protected void persist(T t){
+		
+		getEntityManager().persist(t);
 	}
 }

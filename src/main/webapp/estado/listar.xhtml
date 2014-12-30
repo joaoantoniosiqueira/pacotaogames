@@ -12,6 +12,9 @@
 	<h:form>
 		<h:dataTable value="#{estadoBean.estados}" var="estado">
 			<h:column>
+				<h:outputText value="#{estado.id}" />
+			</h:column>
+			<h:column>
 				<h:outputText value="#{estado.descricao}" />
 			</h:column>
 			<h:column>

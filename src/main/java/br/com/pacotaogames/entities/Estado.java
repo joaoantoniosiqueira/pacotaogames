@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @NamedQuery(name="getTodosEstados", query="select e from Estado e order by e.descricao")
 @Entity
 @Table(name="estado")
-public class Estado implements Serializable {
+public class Estado implements Serializable, BaseEntity {
 
 	/**
 	 * 

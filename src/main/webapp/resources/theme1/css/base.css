@@ -1,0 +1,70 @@
+/* 
+    Created on : 03/06/2014, 15:22:35
+    Author     : João Antônio Siqueira
+*/
+
+html {
+    position: relative;
+    min-height: 93%;
+
+}
+
+body{
+	padding-top: 50px;
+}
+
+.header-base{
+    background-color: #e0e0e0;
+}
+
+.header-base img{
+    margin: 0 auto;
+}
+
+.links-uteis{
+    background-color: #428bca;
+    height: 220px;
+}
+
+.central-base{
+    padding-top: 50px;
+    padding-bottom: 50px
+}
+
+.footer-base{    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 0px;    
+}
+
+.footer-base-style{
+    background-color: #f5f5f5;
+}
+
+.footer-base p, img{
+    margin: 11px 0 8px 0;
+
+}
+
+.footer-base-texto{
+    font-size: 11px;
+    color: #777;
+    text-align: left;
+    background-color: #e0e0e0;
+}
+
+
+.borda-base{
+    border-top: 2px #428BCA solid;
+}
+
+input {
+	text-transform: uppercase;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}

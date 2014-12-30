@@ -9,11 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@NamedQueries(value={
+		@NamedQuery(name="getCidadeByEstado", query="select c from Cidade c where c.estado = ?1 order by c.descricao")
+})
 @Entity
 @Table(name="cidade")
-public class Cidade implements Serializable {
+public class Cidade implements Serializable, BaseEntity {
 
 	/**
 	 * 

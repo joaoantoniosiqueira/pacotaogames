@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<ui:composition template="/template/main.xhtml">
+<ui:define name="content">	
+	<div class="container">
+		
+		<h2>Cadastro de Clientes</h2>
+		
+		<h:form role="form" prependId="false">
+		
+			<div class="form-group">
+				<h:outputLabel value="Nome:" for="txtNome" />
+				<h:inputText value="#{clienteBean.cliente.nome}" id="txtNome" styleClass="form-control" />
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="E-mail" for="txtEmail" />
+				<h:inputText value="#{clienteBean.cliente.email}" id="txtEmail" styleClass="form-control" />
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Estado:" for="cmbEstado" />
+				<h:selectOneMenu value="#{estadoBean.estado}" id="cmbEstado" styleClass="form-control" converter="entityConverter">
+					<f:selectItem itemLabel="Selecione o estado" noSelectionOption="false"/>
+					<f:selectItems value="#{estadoBean.estados}" var="estado" itemValue="#{estado}" itemLabel="#{estado.descricao}"/>
+					<f:ajax event="change" listener="#{estadoBean.quandoMudarEstado}" render="cmbCidade"/>
+				</h:selectOneMenu>
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Cidade" for="cmbCidade" />
+				<h:selectOneMenu id="cmbCidade" value="#{clienteBean.cliente.cidade}" styleClass="form-control" converter="entityConverter">	
+					<f:selectItem itemLabel="Selecione a cidade" noSelectionOption="false"/>
+					<f:selectItems value="#{estadoBean.cidades}" var="cidade" itemValue="#{cidade}" itemLabel="#{cidade.descricao}"/>
+				</h:selectOneMenu>
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Endereço:" for="txtEndereco" />
+				<h:inputText value="#{clienteBean.cliente.endereco}" id="txtEndereco" styleClass="form-control" />
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Bairro:" for="txtBairro" />
+				<h:inputText value="#{clienteBean.cliente.bairro}" id="txtBairro" styleClass="form-control" />
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<h:outputLabel value="CEP:" for="txtCep" />
+						<h:inputText value="#{clienteBean.cliente.cep}" id="txtCep" styleClass="form-control" />
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="form-group">
+						<h:outputLabel value="Fone:" for="txtFone" />				
+						<h:inputText value="#{clienteBean.cliente.fone}" id="txtFone" styleClass="form-control" />			
+					</div>
+				</div>
+			</div>
+			
+			
+			<h:commandLink action="#{clienteBean.salvar}" styleClass="btn btn-primary">
+				<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Salvar
+			</h:commandLink>
+		</h:form>
+		
+	</div>	
+</ui:define>		
+</ui:composition>
+</html>
