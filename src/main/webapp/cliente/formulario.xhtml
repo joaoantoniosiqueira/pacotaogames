@@ -73,6 +73,16 @@
 		</h:form>
 		
 	</div>	
-</ui:define>		
+</ui:define>	
+
+<ui:define name="scripts">
+<h:outputScript library="webjars" name="jquery-maskedinput/1.4.0/jquery.maskedinput.min.js"/>
+	<h:outputScript>
+		jQuery(function($){
+			$("#txtCep").mask("99999-999");
+			$("#txtFone").mask("(99)9999-9999");
+		});
+	</h:outputScript>
+</ui:define>	
 </ui:composition>
 </html>

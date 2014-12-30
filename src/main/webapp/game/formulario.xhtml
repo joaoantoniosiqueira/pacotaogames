@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<ui:composition template="/template/main.xhtml">
+<ui:define name="content">	
+	<div class="container">
+		
+		<h2>Cadastro de Games</h2>
+		
+		<h:form role="form" prependId="false">
+		
+			<div class="form-group">
+				<h:outputLabel value="Nome:" for="txtNome" />
+				<h:inputText value="#{gameBean.game.descricao}" styleClass="form-control" id="txtNome"/>
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Gênero:" for="cmbGenero" />
+				<h:selectOneMenu value="#{gameBean.game.genero}" id="cmbGenero" styleClass="form-control">
+					<f:selectItem itemLabel="Selecione o estado" noSelectionOption="false"/>
+					<f:selectItem itemValue="AÇÃO" itemLabel="AÇÃO"/>
+					<f:selectItem itemValue="AVENTURA" itemLabel="AVENTURA"/>
+					<f:selectItem itemValue="PRIMEIRA PESSOA" itemLabel="PRIMEIRA PESSOA"/>
+					<f:selectItem itemValue="LUTA" itemLabel="LUTA"/>
+					<f:selectItem itemValue="ESPORTES" itemLabel="ESPORTES"/>
+				</h:selectOneMenu>
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Preço" for="txtPreco" />
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1">R$</span>
+					<h:inputText value="#{gameBean.game.preco}" id="txtPreco" styleClass="form-control" />
+				</div>
+			</div>
+			
+			<h:commandLink action="#{gameBean.salvar}" styleClass="btn btn-primary">
+				<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Salvar
+			</h:commandLink>
+			
+		</h:form>
+		
+	</div>	
+</ui:define>		
+</ui:composition>
+</html>
