@@ -56,6 +56,7 @@ public class VendaItem implements Serializable {
 	}
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+		this.setTotal(calculaTotal(this.getGame()));
 	}
 	public Double getTotal() {
 		return total;
@@ -96,5 +97,9 @@ public class VendaItem implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	public Double calculaTotal(Game game){
+		
+		return new Double(game.getPreco() * this.quantidade);
 	}
 }

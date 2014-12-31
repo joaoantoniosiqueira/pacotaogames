@@ -12,7 +12,7 @@
 		<h2>Catálogo de Games</h2>		
 		
 		<h:form role="form" prependId="false">
-			
+					
 			<h:dataTable value="#{gameBean.games}" var="game" styleClass="table table-striped">				
 				<h:column>
 					<f:facet name="header">Nome</f:facet>
@@ -27,6 +27,12 @@
 				<h:column>
 					<f:facet name="header">Preço</f:facet>
 					<h:outputText value="#{game.preco}" />
+				</h:column>
+				
+				<h:column>
+					<h:commandLink action="#{clienteLogadoBean.criarItemEAdd(game)}" styleClass="btn btn-success" >
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add ao carrinho
+					</h:commandLink>
 				</h:column>
 								
 			</h:dataTable>

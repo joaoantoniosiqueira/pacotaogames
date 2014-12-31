@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#game#listar.xhtml" PATH="/game/listar.xhtml"
+  SHAPE="56,112,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#game#listar.xhtml:0" NAME="item"
+   PATH="/game/listar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="gotoCarrinho::#venda#carrinho.xhtml"
+    NAME="output" PATH="/venda/carrinho.xhtml"
+    TARGET="rules:#venda#carrinho.xhtml" TITLE="gotoCarrinho" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#venda#carrinho.xhtml"
+  PATH="/venda/carrinho.xhtml" SHAPE="312,104,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#venda#carrinho.xhtml:0" NAME="item"
+   PATH="/venda/carrinho.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+</PROCESS>

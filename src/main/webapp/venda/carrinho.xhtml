@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<ui:composition template="/template/main.xhtml">
+<ui:define name="content">	
+	<div class="container">
+		
+		<h2>Meu Carrinho</h2>
+		
+		<h:form role="form" prependId="false" id="formCarrinho">
+		
+			<h:dataTable value="#{clienteLogadoBean.carrinho}" var="item" styleClass="table table-striped" id="tblCarrinho">				
+						
+				<h:column>
+					<f:facet name="header">Game</f:facet>
+					<h:outputText value="#{item.game.descricao}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Gênero</f:facet>
+					<h:outputText value="#{item.game.genero}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Quantidade</f:facet>
+					<h:inputText value="#{item.quantidade}">
+						<f:ajax event="blur" render="txtTotal"></f:ajax>
+					</h:inputText>
+				</h:column>								
+				
+				<h:column>
+					<f:facet name="header">Preço total</f:facet>
+					<h:outputText value="#{item.total}" id="txtTotal" />
+				</h:column>
+				
+				<h:column>
+					<h:commandLink  styleClass="btn btn-danger" actionListener="#{clienteLogadoBean.removerItem(item)}">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remover do carrinho
+						<f:ajax render="formCarrinho" />
+					</h:commandLink>
+				</h:column>												
+			</h:dataTable>
+		
+			<div class="row">
+				<div class="col-md-6">
+					<h:commandLink styleClass="btn btn-success btn-lg" >
+						<span class=" glyphicon glyphicon-th-list" aria-hidden="true"></span> Voltar lista de games
+					</h:commandLink>
+				</div>
+				
+				<div class="col-md-6">
+					<h:commandLink styleClass="btn btn-primary btn-lg">
+						<span class="glyphicon glyphicon-ok	" aria-hidden="true"></span> Proceder para checkout
+					</h:commandLink>
+				</div>
+			</div>
+		</h:form>		
+	</div>	
+</ui:define>		
+</ui:composition>
+</html>
