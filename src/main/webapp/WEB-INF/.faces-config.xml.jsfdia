@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PROCESS model-entity="JSFProcess">
  <PROCESS-ITEM NAME="rules:#game#listar.xhtml" PATH="/game/listar.xhtml"
-  SHAPE="56,112,50,41" model-entity="JSFProcessGroup">
+  SHAPE="56,104,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#game#listar.xhtml:0" NAME="item"
    PATH="/game/listar.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="gotoCarrinho::#venda#carrinho.xhtml"
@@ -10,8 +10,29 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#venda#carrinho.xhtml"
-  PATH="/venda/carrinho.xhtml" SHAPE="312,104,50,41" model-entity="JSFProcessGroup">
+  PATH="/venda/carrinho.xhtml" SHAPE="128,328,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#venda#carrinho.xhtml:0" NAME="item"
-   PATH="/venda/carrinho.xhtml" model-entity="JSFProcessItem"/>
+   PATH="/venda/carrinho.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="gotoCheckout::#venda#checkout.xhtml"
+    NAME="output" PATH="/venda/checkout.xhtml"
+    TARGET="rules:#venda#checkout.xhtml" TITLE="gotoCheckout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#venda#checkout.xhtml"
+  PATH="/venda/checkout.xhtml" SHAPE="472,296,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#home#login.xhtml" PATH="/home/login.xhtml"
+  SHAPE="288,96,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#home#login.xhtml:0" NAME="item"
+   PATH="/home/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="refresh::#home#login.xhtml" NAME="output"
+    PATH="/home/login.xhtml" TARGET="rules:#home#login.xhtml"
+    TITLE="refresh" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="gotoIndex::#home#index.xhtml" NAME="output1"
+    PATH="/home/index.xhtml" TARGET="rules:#home#index.xhtml"
+    TITLE="gotoIndex" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#home#index.xhtml" PATH="/home/index.xhtml"
+  SHAPE="664,160,50,25" model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>

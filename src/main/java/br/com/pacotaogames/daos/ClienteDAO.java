@@ -8,4 +8,9 @@ public class ClienteDAO extends GenericDAO<Cliente> {
 		
 		persist(cliente);
 	}
+	
+	public Cliente getClienteByLoginAndPassword(String login, String password){
+		
+		return getPojo("getClienteByLoginAndPassword", login, password);
+	}
 }

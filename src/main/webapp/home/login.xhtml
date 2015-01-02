@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/main.xhtml">
+	<ui:define name="content">
+		<div class="container">
+
+			<div class="page-header">
+				<h1>Bem-vindo a Pacotão Games</h1>
+			</div>
+
+			<h:messages />
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Login</h3>
+				</div>
+				<div class="panel-body">
+					<h:form role="form" id="form">
+					
+						<div class="form-group">
+							<h:outputLabel value="Usuário:" for="txtLogin" />
+							<h:inputText value="#{clienteLogadoBean.login}" id="txtLogin" styleClass="form-control" />
+						</div>
+						
+						<div class="form-group">
+							<h:outputLabel value="Senha" for="txtPassword" />
+							<h:inputText value="#{clienteLogadoBean.senha}" id="txtPassword" styleClass="form-control" />
+						</div>
+						
+						<h:commandLink action="#{clienteLogadoBean.logar}" styleClass="btn btn-primary btn-lg">
+							<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Logar
+						</h:commandLink>
+						
+					</h:form>
+				</div>
+			</div>
+
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

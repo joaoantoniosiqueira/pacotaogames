@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/main.xhtml">
+	<ui:define name="content">
+		<div class="container">
+
+			<div class="jumbotron">
+
+				<h1>Bem-vindo, <h:outputText value="#{clienteLogadoBean.cliente.nome}" />
+				</h1>
+				<p>A maior distribuidora de games do mundo. Clique no baixo para conhecer nossos produtos.</p>
+				<p>
+					<a class="btn btn-primary btn-lg" role="button" href="#{request.contextPath}/game/listar.jsf">
+						<span class=" glyphicon glyphicon-th-list" aria-hidden="true"></span> Exibir lista de games
+					</a>
+				</p>
+			</div>
+
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

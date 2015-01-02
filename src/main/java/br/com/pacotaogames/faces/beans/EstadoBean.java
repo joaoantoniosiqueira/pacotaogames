@@ -33,9 +33,7 @@ public class EstadoBean implements Serializable {
 	
 	public void quandoMudarEstado(){
 		
-		System.out.println("Sabia que eu tinha que botar essa porra!");
 		if(estado != null){
-			System.out.println("Chamou o metodo");
 			cidades = new CidadeDAO().getCidadeByEstado(estado);
 		}	
 	}

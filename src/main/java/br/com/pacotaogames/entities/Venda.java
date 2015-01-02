@@ -1,6 +1,7 @@
 package br.com.pacotaogames.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -86,5 +87,15 @@ public class Venda implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	public void calculaTotal(List<VendaItem> items){
+		
+		Double total = new Double(0);
+		for (VendaItem item : items) {
+			
+			total = item.getTotal() + total;
+		}
+		
+		this.setTotal(total);
 	}
 }

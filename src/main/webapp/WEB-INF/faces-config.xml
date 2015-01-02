@@ -10,6 +10,23 @@
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/venda/carrinho.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>gotoCheckout</from-outcome>
+   <to-view-id>/venda/checkout.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/home/login.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>refresh</from-outcome>
+   <to-view-id>/home/login.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>gotoIndex</from-outcome>
+   <to-view-id>/home/index.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
  </navigation-rule>
  <application/>
 </faces-config>

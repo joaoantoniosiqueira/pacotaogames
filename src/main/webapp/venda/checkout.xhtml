@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/template/main.xhtml">
+<ui:define name="content">
+	<div class="container">
+	
+		<div class="page-header">
+			<h1>Efetue o pagamento</h1>
+		</div>
+	
+		<h:form role="form" prependId="false" id="form">
+			
+			<div class="form-group">
+				<h:outputLabel value="Selecione o tipo de pagamento" />
+				<h:selectOneMenu value="#{clienteLogadoBean.venda.tipoPagamento}" styleClass="form-control">
+					<f:selectItem itemValue="DINHEIRO" itemLabel="A VISTA"/>
+					<f:selectItem itemValue="CREDITO" itemLabel="CARTÃO DE CREDITO"/>					
+					<f:selectItem itemValue="CREDIÁRIO" itemLabel="CREDIÁRIO"/>
+					<f:ajax event="change" render="form"/>
+				</h:selectOneMenu>
+			</div>			
+			
+			<h:panelGroup layout="block" styleClass="form-group" rendered="#{clienteLogadoBean.venda.tipoPagamento == 'CREDITO'}">
+				<h:outputLabel value="Insira o número do cartão de credito" for="txtNumCartao" />				
+				<h:inputText styleClass="form-control" id="txtNumCartao" />
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="form-group" id="panelNumParcelas" rendered="#{clienteLogadoBean.venda.tipoPagamento != 'DINHEIRO' or clienteLogadoBean.venda.tipoPagamento != null}">
+				<h:outputLabel value="Selecione o número de parcelas"/>
+				<h:selectOneMenu value="#{clienteLogadoBean.quantidade}" styleClass="form-control">
+					<f:selectItem itemValue="1" itemLabel="1"/>
+					<f:selectItem itemValue="2" itemLabel="2"/>
+					<f:selectItem itemValue="3" itemLabel="3"/>
+					<f:selectItem itemValue="4" itemLabel="4"/>
+					<f:selectItem itemValue="5" itemLabel="5"/>
+					<f:selectItem itemValue="6" itemLabel="6"/>
+					<f:selectItem itemValue="7" itemLabel="7"/>
+					<f:selectItem itemValue="8" itemLabel="8"/>
+					<f:selectItem itemValue="9" itemLabel="9"/>		
+					<f:selectItem itemValue="10" itemLabel="10"/>				
+				</h:selectOneMenu>
+			</h:panelGroup>
+			
+			<h3>Total de a pagar: <h:outputText value="#{clienteLogadoBean.venda.total}" /></h3>
+			
+			<h:commandLink action="#{clienteLogadoBean.concluirCompra}" styleClass="btn btn-primary">
+				<span class="glyphicon glyphicon-ok	" aria-hidden="true"></span> Finalizar compra
+			</h:commandLink>
+			
+		</h:form>
+		
+	</div>	
+</ui:define>		
+</ui:composition>
+</html>
