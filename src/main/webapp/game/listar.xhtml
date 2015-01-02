@@ -9,8 +9,10 @@
 <ui:define name="content">	
 	<div class="container">
 		
-		<h2>Catálogo de Games</h2>		
-		
+		<div class="page-header">
+			<h1>Catálogo de Games</h1>
+		</div>
+						
 		<h:form role="form" prependId="false">
 					
 			<h:dataTable value="#{gameBean.games}" var="game" styleClass="table table-striped">				
