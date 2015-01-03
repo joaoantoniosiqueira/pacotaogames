@@ -29,6 +29,14 @@ public class ClienteDAO extends GenericDAO<Cliente> {
 			}
 		}
 		
+		for (Cliente cliente : inadimplentes) {
+			for (Parcela parcela : parcelas) {
+				if(parcela.getVenda().getCliente().getId() == cliente.getId()){
+					cliente.setTotalDevedor(cliente.getTotalDevedor() + parcela.getValor());
+				}
+			}
+		}
+
 		return inadimplentes;
 	}
 }

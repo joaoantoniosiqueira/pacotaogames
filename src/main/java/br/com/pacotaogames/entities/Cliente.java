@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -74,6 +75,9 @@ public class Cliente implements Serializable {
 	@Column(name="cli_senha", length=45)
 	private String senha;
 	
+	@Transient
+	private Double totalDevedor = new Double(0);
+	
 	public Integer getId() {
 		return id;
 	}
@@ -133,6 +137,12 @@ public class Cliente implements Serializable {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public Double getTotalDevedor() {
+		return totalDevedor;
+	}
+	public void setTotalDevedor(Double totalDevedor) {
+		this.totalDevedor = totalDevedor;
 	}
 	@Override
 	public String toString() {
